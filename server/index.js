@@ -6,6 +6,10 @@ const passport = require('passport');
 const User = require('./db/models/User')
 
 const app = express();
+
+if (process.env.NODE_ENV === 'development') {
+  require('../localSecrets');
+}
 //passport registration
 passport.serializeUser((user, done) => {
   try {
